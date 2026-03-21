@@ -2,7 +2,9 @@
 
 <div align="center">
 
-![Portfolio Preview](https://portfolio-itsankitdev.vercel.app/)
+## 🖥️ Live Preview
+
+[![Portfolio Preview](https://portfolio-itsankitdev.vercel.app/api/og)](https://portfolio-itsankitdev.vercel.app/)
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-a855f7?style=for-the-badge&logo=vercel&logoColor=white)](https://portfolio-itsankitdev.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-itsankitdev-e879f9?style=for-the-badge&logo=github&logoColor=white)](https://github.com/itsankitdev)
