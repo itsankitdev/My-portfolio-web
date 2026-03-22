@@ -8,7 +8,6 @@ export default function ThreeBackground() {
     let scrollY = 0;
     let mouseX = 0, mouseY = 0;
 
-    // Scene Setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 5;
@@ -21,20 +20,20 @@ export default function ThreeBackground() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // Lights
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
-    const pointLight1 = new THREE.PointLight(0x3b82f6, 2);
+
+    // ✅ Purple theme lights
+    const pointLight1 = new THREE.PointLight(0xa855f7, 2);
     pointLight1.position.set(5, 5, 5);
     scene.add(pointLight1);
-    const pointLight2 = new THREE.PointLight(0x93c5fd, 1);
+    const pointLight2 = new THREE.PointLight(0xe879f9, 1);
     pointLight2.position.set(-5, -5, 5);
     scene.add(pointLight2);
 
-    // Blob Geometry
     const geometry = new THREE.IcosahedronGeometry(1.5, 64);
     const material = new THREE.MeshStandardMaterial({
-      color: 0x3b82f6,
+      color: 0xa855f7,
       metalness: 0.9,
       roughness: 0.1,
     });
@@ -43,7 +42,6 @@ export default function ThreeBackground() {
 
     const originalPositions = new Float32Array(geometry.attributes.position.array);
 
-    // Animation Loop
     let animId;
     const animate = () => {
       animId = requestAnimationFrame(animate);
@@ -73,7 +71,6 @@ export default function ThreeBackground() {
     };
     animate();
 
-    // Event Listeners
     const handleScroll = () => { scrollY = window.scrollY; };
     const handleMouseMove = (e) => {
       mouseX = (e.clientX / window.innerWidth) * 2 - 1;
@@ -89,7 +86,6 @@ export default function ThreeBackground() {
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("resize", handleResize);
 
-    // Cleanup (React best practice!)
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener("scroll", handleScroll);
@@ -102,7 +98,15 @@ export default function ThreeBackground() {
   return (
     <canvas
       ref={canvasRef}
-      style={{ position: "fixed", top: 0, left: 0, zIndex: 0, pointerEvents: "none" }}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: -1,        // ✅ -1 rakho, 0 nahi
+        pointerEvents: "none",
+        width: "100vw",
+        height: "100vh",
+      }}
     />
   );
 }
