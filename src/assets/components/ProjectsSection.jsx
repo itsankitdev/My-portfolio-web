@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import foodDeliveryImg from '../images/food-delivery.png';
 import quizAppImg from '../images/quiz-app.png';
+import financeAppImg from '../images/finance-tracker.png';
 
 const projects = [
   {
@@ -21,6 +22,15 @@ const projects = [
     tag: "Frontend",
     github: "https://github.com/itsankitdev/Quiz_app_project",
     live: "https://itsankitdev.github.io/Quiz_app_project/",
+  },
+  {
+    title: "Finance Tracker Web App",
+    desc: "A React & Node.js power-user dashboard that transforms raw transaction data into interactive visual summaries.",
+    image: financeAppImg,
+    color: "#FF0000", bg: "rgba(211, 58, 58, 0.08)", border: "rgba(211, 58, 58, 0.2)",
+    tag: "Full Stack",
+    github: "https://github.com/itsankitdev/Finance-Tracker",
+    live: "https://finance-tracker-expense.vercel.app/",
   },
 ];
 
