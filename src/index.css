@@ -1,35 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #0d0015;
-  --bg-secondary: #130025;
-  --accent-purple: #a855f7;
-  --accent-pink: #e879f9;
-  --accent-fuchsia: #c084fc;
-  --glass-bg: rgba(255, 255, 255, 0.04);
-  --glass-border: rgba(168, 85, 247, 0.2);
-  --text-muted: rgba(233, 213, 255, 0.45);
+  --bg-primary: #eee8ff;
+  --accent-purple: #5b21b6;
+  --accent-pink: #86198f;
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(91, 33, 182, 0.12);
+  --text-primary: #0a0015;
+  --text-muted: rgba(10, 0, 21, 0.55);
 }
-
-/* * { box-sizing: border-box; margin: 0; padding: 0; } */
 
 body {
   font-family: 'DM Sans', sans-serif;
   background-color: var(--bg-primary);
-  color: white;
+  color: var(--text-primary);
   overflow-x: hidden;
 }
 
-/* Orb glow background */
 body::before {
   content: '';
   position: fixed;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(168,85,247,0.12) 0%, transparent 70%);
-  top: -150px;
-  right: -150px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(91,33,182,0.1) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -38,36 +34,41 @@ body::before {
 body::after {
   content: '';
   position: fixed;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(236,72,153,0.1) 0%, transparent 70%);
-  bottom: -100px;
-  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(134,25,143,0.08) 0%, transparent 70%);
+  bottom: -80px;
+  left: -80px;
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
 }
 
 .glass {
-  background: var(--glass-bg);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 0.5px solid var(--glass-border);
+  border: 0.5px solid rgba(91, 33, 182, 0.12);
+  box-shadow: 0 4px 32px rgba(91, 33, 182, 0.08);
 }
 
 .accent-text {
-  background: linear-gradient(135deg, #a855f7, #e879f9);
+  background: linear-gradient(135deg, #5b21b6, #86198f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .outline-text {
-  -webkit-text-stroke: 1px rgba(168, 85, 247, 0.55);
+  -webkit-text-stroke: 1.5px rgba(91, 33, 182, 0.2);
   color: transparent;
 }
 
-/* Scrollbar */
+main, nav, footer {
+  position: relative;
+  z-index: 2;
+}
+
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
 ::-webkit-scrollbar-thumb { background: var(--accent-purple); border-radius: 2px; }

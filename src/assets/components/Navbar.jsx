@@ -9,9 +9,15 @@ export default function Navbar() {
       <motion.nav
         className="fixed top-0 left-0 w-full px-8 md:px-12 py-5 flex justify-between items-center z-50"
         style={{
-          background: "rgba(13,0,21,0.7)",
+          position: "fixed", // ✅ explicitly add karo
+          top: 0,
+          left: 0,
+          width: "100%",
+          zIndex: 100, // ✅ z-index badha diya
+          background: "rgba(250,248,255,0.85)",
           backdropFilter: "blur(20px)",
-          borderBottom: "0.5px solid rgba(168,85,247,0.15)",
+          WebkitBackdropFilter: "blur(20px)",
+          borderBottom: "0.5px solid rgba(91,33,182,0.12)",
         }}
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -24,15 +30,14 @@ export default function Navbar() {
             fontWeight: 800,
             fontSize: 22,
             letterSpacing: "-0.04em",
-            color: "#fff",
-            zIndex: 60,
+            color: "#1a0533",
           }}
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           whileHover={{ scale: 1.05 }}
         >
-          Itsankitdev<span style={{ color: "#e879f9" }}>.</span>
+          Itsankitdev<span style={{ color: "#c026d3" }}>.</span>
         </motion.div>
 
         {/* Desktop Nav Links */}
@@ -59,8 +64,8 @@ export default function Navbar() {
                 <motion.span
                   className="block"
                   variants={{
-                    rest: { color: "rgba(233,213,255,0.45)" },
-                    hover: { color: "#e879f9" },
+                    rest: { color: "rgba(26,5,51,0.45)" },
+                    hover: { color: "#7c3aed" },
                   }}
                   transition={{ duration: 0.15 }}
                 >
@@ -71,7 +76,7 @@ export default function Navbar() {
                   style={{
                     bottom: -4,
                     height: 1,
-                    background: "linear-gradient(90deg, #a855f7, #e879f9)",
+                    background: "linear-gradient(90deg, #7c3aed, #c026d3)",
                   }}
                   variants={{ rest: { width: "0%" }, hover: { width: "100%" } }}
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -90,9 +95,10 @@ export default function Navbar() {
         >
           <motion.a
             href="https://mail.google.com/mail/?view=cm&to=ankitk098565@gmail.com"
+            target="_blank"
             className="relative overflow-hidden text-sm font-semibold uppercase tracking-widest px-7 py-3 rounded-full"
             style={{
-              border: "1px solid #a855f7",
+              border: "1px solid #7c3aed",
               fontFamily: "DM Sans, sans-serif",
               display: "inline-block",
               textDecoration: "none",
@@ -105,7 +111,7 @@ export default function Navbar() {
             <motion.span
               className="absolute inset-0 rounded-full"
               style={{
-                background: "linear-gradient(135deg, #a855f7, #e879f9)",
+                background: "linear-gradient(135deg, #7c3aed, #c026d3)",
               }}
               variants={{
                 rest: { scaleX: 0, originX: 0 },
@@ -116,7 +122,7 @@ export default function Navbar() {
             <motion.span
               className="relative z-10"
               variants={{
-                rest: { color: "#a855f7" },
+                rest: { color: "#7c3aed" },
                 hover: { color: "#fff" },
               }}
               transition={{ duration: 0.15 }}
@@ -125,15 +131,16 @@ export default function Navbar() {
             </motion.span>
           </motion.a>
         </motion.div>
-        {/* Hamburger Button */}
+
+        {/* Hamburger */}
         <motion.button
           className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-xl relative z-[60]"
           style={{
-            background: "rgba(168,85,247,0.1)",
-            border: "0.5px solid rgba(168,85,247,0.3)",
+            background: "rgba(124,58,237,0.08)",
+            border: "0.5px solid rgba(124,58,237,0.2)",
           }}
           onClick={() => setMenuOpen(!menuOpen)}
-          whileHover={{ background: "rgba(168,85,247,0.2)", scale: 1.05 }}
+          whileHover={{ background: "rgba(124,58,237,0.15)", scale: 1.05 }}
           whileTap={{ scale: 0.92 }}
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -150,8 +157,8 @@ export default function Navbar() {
             }}
             animate={
               menuOpen
-                ? { rotate: 45, y: 5.5, background: "#e879f9" }
-                : { rotate: 0, y: 0, background: "#a855f7" }
+                ? { rotate: 45, y: 5.5, background: "#c026d3" }
+                : { rotate: 0, y: 0, background: "#7c3aed" }
             }
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           />
@@ -160,7 +167,7 @@ export default function Navbar() {
               display: "block",
               height: "1.5px",
               borderRadius: 2,
-              background: "#a855f7",
+              background: "#7c3aed",
               width: "18px",
               marginBottom: "4px",
             }}
@@ -179,8 +186,8 @@ export default function Navbar() {
             }}
             animate={
               menuOpen
-                ? { rotate: -45, y: -5.5, background: "#e879f9" }
-                : { rotate: 0, y: 0, background: "#a855f7" }
+                ? { rotate: -45, y: -5.5, background: "#c026d3" }
+                : { rotate: 0, y: 0, background: "#7c3aed" }
             }
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           />
@@ -191,11 +198,10 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               className="fixed inset-0 z-40 md:hidden"
               style={{
-                background: "rgba(13,0,21,0.6)",
+                background: "rgba(250,248,255,0.7)",
                 backdropFilter: "blur(8px)",
               }}
               initial={{ opacity: 0 }}
@@ -204,21 +210,18 @@ export default function Navbar() {
               transition={{ duration: 0.3 }}
               onClick={() => setMenuOpen(false)}
             />
-
-            {/* Panel */}
             <motion.div
               className="fixed top-0 right-0 h-full w-72 z-50 md:hidden flex flex-col"
               style={{
-                background: "rgba(18,0,30,0.97)",
+                background: "rgba(250,248,255,0.97)",
                 backdropFilter: "blur(30px)",
-                borderLeft: "0.5px solid rgba(168,85,247,0.2)",
+                borderLeft: "0.5px solid rgba(124,58,237,0.15)",
               }}
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             >
-              {/* Glow orb */}
               <div
                 style={{
                   position: "absolute",
@@ -226,14 +229,12 @@ export default function Navbar() {
                   right: -60,
                   width: 200,
                   height: 200,
-                  background:
-                    "radial-gradient(circle, rgba(168,85,247,0.2) 0%, transparent 70%)",
                   borderRadius: "50%",
                   pointerEvents: "none",
+                  background:
+                    "radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 70%)",
                 }}
               />
-
-              {/* Links */}
               <div className="flex flex-col justify-center flex-1 px-8 gap-1">
                 {["About", "Projects", "Contact"].map((link, i) => (
                   <motion.a
@@ -242,7 +243,7 @@ export default function Navbar() {
                     onClick={() => setMenuOpen(false)}
                     className="relative block py-5 overflow-hidden"
                     style={{
-                      borderBottom: "0.5px solid rgba(168,85,247,0.1)",
+                      borderBottom: "0.5px solid rgba(124,58,237,0.1)",
                       fontFamily: "Syne, sans-serif",
                       fontWeight: 800,
                       fontSize: "26px",
@@ -260,9 +261,6 @@ export default function Navbar() {
                     }}
                     whileHover="hover"
                   >
-                    {" "}
-                    {/* ✅ only whileHover for children */}
-                    {/* Arrow */}
                     <motion.span
                       style={{
                         position: "absolute",
@@ -270,52 +268,43 @@ export default function Navbar() {
                         top: "50%",
                         transform: "translateY(-50%)",
                         fontSize: "16px",
-                        color: "#e879f9",
+                        color: "#c026d3",
                       }}
-                      variants={{
-                        hover: { opacity: 1, x: 0 },
-                      }}
+                      variants={{ hover: { opacity: 1, x: 0 } }}
                       initial={{ opacity: 0, x: -10 }}
                       transition={{ duration: 0.2 }}
                     >
                       →
                     </motion.span>
-                    {/* Text */}
                     <motion.span
                       className="block"
-                      initial={{ color: "rgba(233,213,255,0.45)", x: 0 }}
-                      variants={{
-                        hover: { color: "#e879f9", x: 22 },
-                      }}
+                      initial={{ color: "rgba(26,5,51,0.4)", x: 0 }}
+                      variants={{ hover: { color: "#7c3aed", x: 22 } }}
                       transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                     >
                       {link}
                     </motion.span>
-                    {/* Line sweep */}
                     <motion.span
                       style={{
                         position: "absolute",
                         bottom: 0,
                         left: 0,
                         height: "0.5px",
-                        background: "linear-gradient(90deg, #a855f7, #e879f9)",
+                        background: "linear-gradient(90deg, #7c3aed, #c026d3)",
                       }}
                       initial={{ width: "0%" }}
-                      variants={{
-                        hover: { width: "100%" },
-                      }}
+                      variants={{ hover: { width: "100%" } }}
                       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                     />
                   </motion.a>
                 ))}
-
-                {/* Let's Talk */}
                 <motion.a
-                  href="#contact"
+                  href="https://mail.google.com/mail/?view=cm&to=ankitk098565@gmail.com"
+                  target="_blank"
                   onClick={() => setMenuOpen(false)}
                   className="mt-8 py-4 rounded-full text-center text-sm font-semibold uppercase tracking-widest text-white"
                   style={{
-                    background: "linear-gradient(135deg, #a855f7, #e879f9)",
+                    background: "linear-gradient(135deg, #7c3aed, #c026d3)",
                     fontFamily: "DM Sans, sans-serif",
                     textDecoration: "none",
                   }}
@@ -325,15 +314,13 @@ export default function Navbar() {
                   transition={{ delay: 0.4, duration: 0.4 }}
                   whileHover={{
                     scale: 1.04,
-                    boxShadow: "0 0 25px rgba(168,85,247,0.5)",
+                    boxShadow: "0 0 25px rgba(124,58,237,0.3)",
                   }}
                   whileTap={{ scale: 0.97 }}
                 >
                   Let's Talk
                 </motion.a>
               </div>
-
-              {/* Footer */}
               <motion.div
                 className="px-8 py-8"
                 initial={{ opacity: 0 }}
@@ -342,14 +329,14 @@ export default function Navbar() {
               >
                 <p
                   style={{
-                    color: "rgba(233,213,255,0.2)",
+                    color: "rgba(26,5,51,0.2)",
                     fontSize: "11px",
                     fontFamily: "DM Sans, sans-serif",
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
                   }}
                 >
-                  © 2024 LUMINA Studio
+                  © 2026 Ankit Kumar
                 </p>
               </motion.div>
             </motion.div>

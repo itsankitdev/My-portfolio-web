@@ -5,22 +5,22 @@ import quizAppImg from '../images/quiz-app.png';
 
 const projects = [
   {
-    title: 'Food Delivery App',
-    desc: 'A full stack food delivery platform with cart, ordering system, and real-time updates.',
+    title: "Food Delivery App",
+    desc: "A full stack food delivery platform with cart, ordering system, and real-time updates.",
     image: foodDeliveryImg,
-    color: '#a855f7', bg: 'rgba(168,85,247,0.1)', border: 'rgba(168,85,247,0.25)',
-    tag: 'Full Stack',
-    github: 'https://github.com/itsankitdev/food-del',
-    live: 'https://food-del-orcin-ten.vercel.app/',
+    color: "#7c3aed", bg: "rgba(124,58,237,0.08)", border: "rgba(124,58,237,0.2)",
+    tag: "Full Stack",
+    github: "https://github.com/itsankitdev/food-del",
+    live: "https://food-del-orcin-ten.vercel.app/",
   },
   {
-    title: 'Quiz App',
-    desc: 'An interactive quiz application with multiple categories, scoring, and result tracking.',
+    title: "Quiz App",
+    desc: "An interactive quiz application with multiple categories, scoring, and result tracking.",
     image: quizAppImg,
-    color: '#e879f9', bg: 'rgba(232,121,249,0.1)', border: 'rgba(232,121,249,0.25)',
-    tag: 'Frontend',
-    github: 'https://github.com/itsankitdev/Quiz_app_project',
-    live: 'https://itsankitdev.github.io/Quiz_app_project/',
+    color: "#c026d3", bg: "rgba(192,38,211,0.08)", border: "rgba(192,38,211,0.2)",
+    tag: "Frontend",
+    github: "https://github.com/itsankitdev/Quiz_app_project",
+    live: "https://itsankitdev.github.io/Quiz_app_project/",
   },
 ];
 
@@ -44,169 +44,141 @@ function ProjectCard({ p, i }) {
 
   return (
     <motion.div
-      className="glass rounded-3xl cursor-pointer relative overflow-hidden"
+      className="rounded-3xl cursor-pointer relative overflow-hidden"
+      style={{ background: hovered ? `${p.color}08` : "rgba(124,58,237,0.04)",
+               border: `0.5px solid ${hovered ? p.border : "rgba(124,58,237,0.1)"}`,
+               transition: "background 0.3s, border 0.3s" }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
+      viewport={{ once: true }}
       transition={{ duration: 0.5, delay: i * 0.1 }}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
-      whileHover={{ y: -6 }}
-      animate={{ background: hovered ? 'rgba(168,85,247,0.08)' : 'rgba(255,255,255,0.04)' }}>
+      whileHover={{ y: -6 }}>
 
-      {/* Project Image */}
-      <div style={{ position: 'relative', width: '100%', height: '200px',
-                    overflow: 'hidden', borderRadius: '20px 20px 0 0' }}>
+      {/* Image */}
+      <div style={{ position: "relative", width: "100%", height: "200px",
+                    overflow: "hidden", borderRadius: "20px 20px 0 0" }}>
         <motion.img
-          src={p.image}
-          alt={p.title}
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-          animate={{ scale: hovered ? 1.08 : 1 }}
+          src={p.image} alt={p.title}
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          animate={{ scale: hovered ? 1.06 : 1 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         />
-
-        {/* Image overlay on hover */}
         <motion.div
-          style={{ position: 'absolute', inset: 0,
-                   background: `linear-gradient(135deg, ${p.color}30, rgba(13,0,21,0.6))` }}
+          style={{ position: "absolute", inset: 0,
+                   background: `linear-gradient(135deg, ${p.color}25, rgba(250,248,255,0.4))` }}
           animate={{ opacity: hovered ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         />
-
-        {/* Buttons — appear on image on hover */}
         <AnimatePresence>
           {hovered && (
             <motion.div
-              style={{ position: 'absolute', top: '50%', left: '50%',
-                       transform: 'translate(-50%, -50%)',
-                       display: 'flex', gap: '10px', zIndex: 10 }}
+              style={{ position: "absolute", top: "50%", left: "50%",
+                       transform: "translate(-50%, -50%)",
+                       display: "flex", gap: "10px", zIndex: 10 }}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}>
-
-              {/* GitHub */}
+              transition={{ duration: 0.2 }}>
               <motion.a
                 href={p.github} target="_blank" rel="noopener noreferrer"
                 onClick={e => e.stopPropagation()}
-                style={{ display: 'flex', alignItems: 'center', gap: '6px',
-                         padding: '9px 18px', borderRadius: '100px',
-                         fontSize: '11px', fontWeight: 600,
-                         fontFamily: 'DM Sans, sans-serif',
-                         textTransform: 'uppercase', letterSpacing: '0.05em',
-                         color: '#fff', backdropFilter: 'blur(12px)',
-                         background: 'rgba(0,0,0,0.5)',
-                         border: '0.5px solid rgba(255,255,255,0.2)',
-                         textDecoration: 'none' }}
-                whileHover={{ background: 'rgba(168,85,247,0.7)', borderColor: '#a855f7', scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.15 }}>
+                style={{ display: "flex", alignItems: "center", gap: "6px",
+                         padding: "9px 18px", borderRadius: "100px", fontSize: "11px",
+                         fontWeight: 600, fontFamily: "DM Sans, sans-serif",
+                         textTransform: "uppercase", letterSpacing: "0.05em",
+                         color: "#1a0533", backdropFilter: "blur(12px)",
+                         background: "rgba(250,248,255,0.85)",
+                         border: "0.5px solid rgba(124,58,237,0.2)",
+                         textDecoration: "none" }}
+                whileHover={{ background: p.color, color: "#fff", scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}>
                 <GithubIcon /> Github
               </motion.a>
-
-              {/* Live */}
               <motion.a
                 href={p.live} target="_blank" rel="noopener noreferrer"
                 onClick={e => e.stopPropagation()}
-                style={{ display: 'flex', alignItems: 'center', gap: '6px',
-                         padding: '9px 18px', borderRadius: '100px',
-                         fontSize: '11px', fontWeight: 600,
-                         fontFamily: 'DM Sans, sans-serif',
-                         textTransform: 'uppercase', letterSpacing: '0.05em',
-                         color: '#fff',
-                         background: `linear-gradient(135deg, ${p.color}, #e879f9)`,
-                         border: 'none', textDecoration: 'none' }}
-                whileHover={{ scale: 1.05, boxShadow: `0 0 20px ${p.color}80` }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.15 }}>
+                style={{ display: "flex", alignItems: "center", gap: "6px",
+                         padding: "9px 18px", borderRadius: "100px", fontSize: "11px",
+                         fontWeight: 600, fontFamily: "DM Sans, sans-serif",
+                         textTransform: "uppercase", letterSpacing: "0.05em",
+                         color: "#fff",
+                         background: `linear-gradient(135deg, ${p.color}, #c026d3)`,
+                         border: "none", textDecoration: "none" }}
+                whileHover={{ scale: 1.05, boxShadow: `0 0 20px ${p.color}50` }}
+                whileTap={{ scale: 0.95 }}>
                 <ExternalIcon /> Live
               </motion.a>
-
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* Tag — top left on image */}
-        <span style={{ position: 'absolute', top: '12px', left: '12px',
-                       padding: '4px 12px', borderRadius: '100px',
-                       fontSize: '10px', fontWeight: 600,
-                       fontFamily: 'DM Sans, sans-serif',
-                       textTransform: 'uppercase', letterSpacing: '0.08em',
-                       color: p.color, background: 'rgba(13,0,21,0.7)',
+        <span style={{ position: "absolute", top: "12px", left: "12px",
+                       padding: "4px 12px", borderRadius: "100px", fontSize: "10px",
+                       fontWeight: 600, fontFamily: "DM Sans, sans-serif",
+                       textTransform: "uppercase", letterSpacing: "0.08em",
+                       color: p.color, background: "rgba(250,248,255,0.85)",
                        border: `0.5px solid ${p.border}`,
-                       backdropFilter: 'blur(8px)' }}>
+                       backdropFilter: "blur(8px)" }}>
           {p.tag}
         </span>
       </div>
 
-      {/* Card Content */}
-      <div style={{ padding: '1.5rem' }}>
-
-        <h4 style={{ fontFamily: 'Syne, sans-serif', fontSize: '20px',
-                     fontWeight: 800, marginBottom: '8px', color: '#fff' }}>
+      <div style={{ padding: "1.5rem" }}>
+        <h4 style={{ fontFamily: "Syne, sans-serif", fontSize: "20px",
+                     fontWeight: 800, marginBottom: "8px", color: "#1a0533" }}>
           {p.title}
         </h4>
-
-        <p style={{ color: 'rgba(233,213,255,0.45)', fontFamily: 'DM Sans, sans-serif',
-                    fontSize: '14px', lineHeight: 1.7, marginBottom: '1.2rem' }}>
+        <p style={{ color: "rgba(26,5,51,0.5)", fontFamily: "DM Sans, sans-serif",
+                    fontSize: "14px", lineHeight: 1.7, marginBottom: "1.2rem" }}>
           {p.desc}
         </p>
-
-        {/* Bottom row */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <motion.span
-            style={{ color: p.color, fontFamily: 'DM Sans, sans-serif',
-                     fontSize: '11px', fontWeight: 700,
-                     textTransform: 'uppercase', letterSpacing: '0.1em' }}
+            style={{ color: p.color, fontFamily: "DM Sans, sans-serif",
+                     fontSize: "11px", fontWeight: 700,
+                     textTransform: "uppercase", letterSpacing: "0.1em" }}
             animate={{ x: hovered ? 4 : 0 }}
             transition={{ duration: 0.2 }}>
             View Project →
           </motion.span>
-
-          {/* Mini icon buttons at bottom */}
-          <div style={{ display: 'flex', gap: '8px' }}>
-            <motion.a
-              href={p.github} target="_blank" rel="noopener noreferrer"
+          <div style={{ display: "flex", gap: "8px" }}>
+            <motion.a href={p.github} target="_blank" rel="noopener noreferrer"
               onClick={e => e.stopPropagation()}
-              style={{ width: 32, height: 32, borderRadius: '50%', display: 'flex',
-                       alignItems: 'center', justifyContent: 'center',
-                       color: 'rgba(233,213,255,0.5)',
-                       background: 'rgba(255,255,255,0.05)',
-                       border: '0.5px solid rgba(168,85,247,0.2)',
-                       textDecoration: 'none' }}
-              whileHover={{ color: '#fff', background: 'rgba(168,85,247,0.2)',
-                            borderColor: '#a855f7', scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.15 }}>
+              style={{ width: 32, height: 32, borderRadius: "50%", display: "flex",
+                       alignItems: "center", justifyContent: "center",
+                       color: "rgba(26,5,51,0.4)",
+                       background: "rgba(124,58,237,0.06)",
+                       border: "0.5px solid rgba(124,58,237,0.15)",
+                       textDecoration: "none" }}
+              whileHover={{ color: p.color, background: `${p.color}15`,
+                            borderColor: p.color, scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}>
               <GithubIcon />
             </motion.a>
-            <motion.a
-              href={p.live} target="_blank" rel="noopener noreferrer"
+            <motion.a href={p.live} target="_blank" rel="noopener noreferrer"
               onClick={e => e.stopPropagation()}
-              style={{ width: 32, height: 32, borderRadius: '50%', display: 'flex',
-                       alignItems: 'center', justifyContent: 'center',
-                       color: 'rgba(233,213,255,0.5)',
-                       background: 'rgba(255,255,255,0.05)',
-                       border: '0.5px solid rgba(168,85,247,0.2)',
-                       textDecoration: 'none' }}
-              whileHover={{ color: '#fff', background: `${p.color}30`,
+              style={{ width: 32, height: 32, borderRadius: "50%", display: "flex",
+                       alignItems: "center", justifyContent: "center",
+                       color: "rgba(26,5,51,0.4)",
+                       background: "rgba(124,58,237,0.06)",
+                       border: "0.5px solid rgba(124,58,237,0.15)",
+                       textDecoration: "none" }}
+              whileHover={{ color: "#fff", background: p.color,
                             borderColor: p.color, scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.15 }}>
+              whileTap={{ scale: 0.9 }}>
               <ExternalIcon />
             </motion.a>
           </div>
         </div>
       </div>
 
-      {/* Bottom glow */}
       <motion.div
-        style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '2px',
+        style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "2px",
                  background: `linear-gradient(90deg, transparent, ${p.color}, transparent)` }}
         animate={{ opacity: hovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       />
-
     </motion.div>
   );
 }
@@ -215,28 +187,25 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="min-h-screen flex flex-col justify-center px-8 py-20">
       <div className="max-w-6xl mx-auto w-full">
-
         <motion.div className="mb-14"
           initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }} transition={{ duration: 0.6 }}>
+          viewport={{ once: true }} transition={{ duration: 0.6 }}>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] mb-3"
-             style={{ color: '#a855f7', fontFamily: 'DM Sans, sans-serif' }}>
+             style={{ color: "#7c3aed", fontFamily: "DM Sans, sans-serif" }}>
             Portfolio
           </p>
           <h2 className="text-4xl md:text-5xl font-bold"
-              style={{ fontFamily: 'Syne, sans-serif' }}>
+              style={{ fontFamily: "Syne, sans-serif", color: "#1a0533" }}>
             My Projects
           </h2>
           <div className="h-px w-20 mt-4"
-               style={{ background: 'linear-gradient(90deg, #a855f7, #e879f9)' }} />
+               style={{ background: "linear-gradient(90deg, #7c3aed, #c026d3)" }} />
         </motion.div>
-
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((p, i) => (
             <ProjectCard key={p.title} p={p} i={i} />
           ))}
         </div>
-
       </div>
     </section>
   );

@@ -17,110 +17,96 @@ export default function ContactSection() {
     <section id="contact" className="min-h-screen flex items-center justify-center px-8 py-20">
       <motion.div
         className="glass p-12 md:p-20 rounded-[3rem] max-w-4xl w-full text-center"
-        style={{ border: '0.5px solid rgba(168,85,247,0.25)' }}
+        style={{ border: "0.5px solid rgba(124,58,237,0.15)",
+                 background: "rgba(124,58,237,0.04)" }}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
 
         <motion.p
           className="text-xs font-semibold uppercase tracking-[0.3em] mb-6"
-          style={{ color: '#a855f7', fontFamily: 'DM Sans, sans-serif' }}
+          style={{ color: "#7c3aed", fontFamily: "DM Sans, sans-serif" }}
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-          viewport={{ once: false }} transition={{ delay: 0.2 }}>
+          viewport={{ once: true }} transition={{ delay: 0.2 }}>
           Get In Touch
         </motion.p>
 
         <motion.h2
           className="font-bold mb-4 leading-none"
-          style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(3rem, 8vw, 6rem)' }}
+          style={{ fontFamily: "Syne, sans-serif",
+                   fontSize: "clamp(3rem, 8vw, 6rem)", color: "#1a0533" }}
           initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }} transition={{ delay: 0.3, duration: 0.6 }}>
+          viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.6 }}>
           Let's <span className="accent-text">build.</span>
         </motion.h2>
 
         <motion.p
           className="mb-3 text-sm md:text-base"
-          style={{ color: 'rgba(233,213,255,0.45)', fontFamily: 'DM Sans, sans-serif', lineHeight: 1.7 }}
+          style={{ color: "rgba(26,5,51,0.5)", fontFamily: "DM Sans, sans-serif",
+                   lineHeight: 1.7 }}
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-          viewport={{ once: false }} transition={{ delay: 0.4 }}>
+          viewport={{ once: true }} transition={{ delay: 0.4 }}>
           I'm open to frontend opportunities, collaborations, and freelance projects.
         </motion.p>
 
-        {/* Email display */}
         <motion.p
           className="mb-10 text-sm font-semibold"
-          style={{ color: '#a855f7', fontFamily: 'DM Sans, sans-serif' }}
+          style={{ color: "#7c3aed", fontFamily: "DM Sans, sans-serif" }}
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-          viewport={{ once: false }} transition={{ delay: 0.45 }}>
+          viewport={{ once: true }} transition={{ delay: 0.45 }}>
           ankitk098565@gmail.com
         </motion.p>
 
-        {/* CTA Buttons */}
         <motion.div
           className="flex flex-col md:flex-row gap-4 justify-center mb-12"
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }} transition={{ delay: 0.5 }}>
-
+          viewport={{ once: true }} transition={{ delay: 0.5 }}>
           <motion.a
-            href="mailto:ankitk098565@gmail.com"
-            style={{ padding: '14px 36px', borderRadius: '100px', fontWeight: 600,
-                     fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.1em',
-                     color: '#fff', background: 'linear-gradient(135deg, #a855f7, #e879f9)',
-                     fontFamily: 'DM Sans, sans-serif', textDecoration: 'none',
-                     display: 'inline-block' }}
-            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(168,85,247,0.4)' }}
+            href="https://mail.google.com/mail/?view=cm&to=ankitk098565@gmail.com"
+            target="_blank"
+            style={{ padding: "14px 36px", borderRadius: "100px", fontWeight: 600,
+                     fontSize: "13px", textTransform: "uppercase", letterSpacing: "0.1em",
+                     color: "#fff", background: "linear-gradient(135deg, #7c3aed, #c026d3)",
+                     fontFamily: "DM Sans, sans-serif", textDecoration: "none",
+                     display: "inline-block" }}
+            whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(124,58,237,0.3)" }}
             whileTap={{ scale: 0.97 }}>
             Send an Email
           </motion.a>
-
         </motion.div>
 
-        {/* Divider */}
-        <div style={{ height: '0.5px', background: 'rgba(168,85,247,0.15)', marginBottom: '32px' }} />
+        <div style={{ height: "0.5px", background: "rgba(124,58,237,0.1)",
+                      marginBottom: "32px" }} />
 
-        {/* Social Links */}
         <motion.div
           className="flex justify-center gap-4"
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-          viewport={{ once: false }} transition={{ delay: 0.6 }}>
-
-          <motion.a
-            href="https://github.com/itsankitdev"
-            target="_blank" rel="noopener noreferrer"
-            style={{ display: 'flex', alignItems: 'center', gap: '8px',
-                     padding: '10px 24px', borderRadius: '100px',
-                     fontSize: '12px', fontWeight: 600,
-                     fontFamily: 'DM Sans, sans-serif', textTransform: 'uppercase',
-                     letterSpacing: '0.08em', color: 'rgba(233,213,255,0.7)',
-                     background: 'rgba(255,255,255,0.05)',
-                     border: '0.5px solid rgba(168,85,247,0.25)', textDecoration: 'none' }}
-            whileHover={{ scale: 1.05, color: '#fff',
-                          background: 'rgba(168,85,247,0.15)',
-                          borderColor: '#a855f7' }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.2 }}>
-            <GithubIcon /> GitHub
-          </motion.a>
-
-          <motion.a
-            href="https://www.linkedin.com/in/ankit-kumar-a640623ab"
-            target="_blank" rel="noopener noreferrer"
-            style={{ display: 'flex', alignItems: 'center', gap: '8px',
-                     padding: '10px 24px', borderRadius: '100px',
-                     fontSize: '12px', fontWeight: 600,
-                     fontFamily: 'DM Sans, sans-serif', textTransform: 'uppercase',
-                     letterSpacing: '0.08em', color: 'rgba(233,213,255,0.7)',
-                     background: 'rgba(255,255,255,0.05)',
-                     border: '0.5px solid rgba(168,85,247,0.25)', textDecoration: 'none' }}
-            whileHover={{ scale: 1.05, color: '#fff',
-                          background: 'rgba(168,85,247,0.15)',
-                          borderColor: '#a855f7' }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.2 }}>
-            <LinkedInIcon /> LinkedIn
-          </motion.a>
-
+          viewport={{ once: true }} transition={{ delay: 0.6 }}>
+          {[
+            { href: "https://github.com/itsankitdev", label: "GitHub", Icon: GithubIcon },
+            { href: "https://www.linkedin.com/in/ankit-kumar-a640623ab",
+              label: "LinkedIn", Icon: LinkedInIcon },
+          ].map(({ href, label, Icon }) => (
+            <motion.a
+              key={label}
+              href={href} target="_blank" rel="noopener noreferrer"
+              style={{ display: "flex", alignItems: "center", gap: "8px",
+                       padding: "10px 24px", borderRadius: "100px", fontSize: "12px",
+                       fontWeight: 600, fontFamily: "DM Sans, sans-serif",
+                       textTransform: "uppercase", letterSpacing: "0.08em",
+                       color: "rgba(26,5,51,0.6)",
+                       background: "rgba(124,58,237,0.06)",
+                       border: "0.5px solid rgba(124,58,237,0.2)",
+                       textDecoration: "none" }}
+              whileHover={{ scale: 1.05, color: "#7c3aed",
+                            background: "rgba(124,58,237,0.12)",
+                            borderColor: "#7c3aed" }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}>
+              <Icon /> {label}
+            </motion.a>
+          ))}
         </motion.div>
 
       </motion.div>
